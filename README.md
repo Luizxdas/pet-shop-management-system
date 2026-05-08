@@ -47,6 +47,7 @@ erDiagram
 
     USER {
         bigint id PK
+        string name
         string email "UK"
         string password
         string role "ROLE_ADMIN, ROLE_CUSTOMER"
