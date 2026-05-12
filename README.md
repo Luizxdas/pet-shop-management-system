@@ -47,6 +47,7 @@ erDiagram
 
     USER {
         bigint id PK
+        string name
         string email "UK"
         string password
         string role "ROLE_ADMIN, ROLE_CUSTOMER"
@@ -77,6 +78,7 @@ erDiagram
     }
 
     APPOINTMENT_SERVICE {
+        bigint id PK
         bigint appointment_id FK
         bigint service_id FK
     }
