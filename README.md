@@ -78,6 +78,7 @@ erDiagram
     }
 
     APPOINTMENT_SERVICE {
+        bigint id PK
         bigint appointment_id FK
         bigint service_id FK
     }
