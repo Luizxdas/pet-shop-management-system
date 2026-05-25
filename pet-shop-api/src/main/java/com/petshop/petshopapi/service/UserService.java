@@ -3,6 +3,7 @@ package com.petshop.petshopapi.service;
 import com.petshop.petshopapi.dto.UserRegistrationDTO;
 import com.petshop.petshopapi.dto.UserResponseDTO;
 import com.petshop.petshopapi.entity.User;
+import com.petshop.petshopapi.exception.EmailAlreadyExistsException;
 import com.petshop.petshopapi.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class UserService {
 
     public UserResponseDTO registerUser(UserRegistrationDTO userRegistrationDTO) {
         if (userRepository.existsByEmail(userRegistrationDTO.email())) {
-            throw new RuntimeException("Email is already in use");
+            throw new EmailAlreadyExistsException("Email is already in use");
         }
 
         User user = new User();
