@@ -22,4 +22,5 @@ jobs:
           cache: maven
 
       - name: Run Maven tests
+        working-directory: ./pet-shop-api
         run: mvn clean verify
