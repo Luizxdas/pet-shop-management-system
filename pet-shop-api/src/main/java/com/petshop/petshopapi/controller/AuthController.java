@@ -5,6 +5,7 @@ import com.petshop.petshopapi.dto.UserResponseDTO;
 import com.petshop.petshopapi.service.AuthService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,5 +38,18 @@ public class AuthController {
         securityContextRepository.saveContext(SecurityContextHolder.getContext(), request, response);
 
         return new ResponseEntity<>(userResponseDTO, HttpStatus.OK);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+
+        if (session != null) {
+            session.invalidate();
+        }
+
+        SecurityContextHolder.clearContext();
+
+        return ResponseEntity.ok().build();
     }
 }
