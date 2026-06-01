@@ -1,7 +1,7 @@
 package com.petshop.petshopapi.service;
 
-import com.petshop.petshopapi.dto.UserLoginDTO;
-import com.petshop.petshopapi.dto.UserResponseDTO;
+import com.petshop.petshopapi.dto.user.UserLoginDTO;
+import com.petshop.petshopapi.dto.user.UserResponseDTO;
 import com.petshop.petshopapi.entity.User;
 import com.petshop.petshopapi.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -1,7 +1,7 @@
 package com.petshop.petshopapi.controller;
 
-import com.petshop.petshopapi.dto.UserRegistrationDTO;
-import com.petshop.petshopapi.dto.UserResponseDTO;
+import com.petshop.petshopapi.dto.user.UserRegistrationDTO;
+import com.petshop.petshopapi.dto.user.UserResponseDTO;
 import com.petshop.petshopapi.exception.EmailAlreadyExistsException;
 import com.petshop.petshopapi.service.UserService;
 import org.junit.jupiter.api.Test;

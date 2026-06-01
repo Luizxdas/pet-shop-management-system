@@ -1,7 +1,7 @@
 package com.petshop.petshopapi.controller;
 
-import com.petshop.petshopapi.dto.UserLoginDTO;
-import com.petshop.petshopapi.dto.UserResponseDTO;
+import com.petshop.petshopapi.dto.user.UserLoginDTO;
+import com.petshop.petshopapi.dto.user.UserResponseDTO;
 import com.petshop.petshopapi.service.AuthService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
