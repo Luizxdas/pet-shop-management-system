@@ -1,4 +1,4 @@
-package com.petshop.petshopapi.service;
+package com.petshop.petshopapi.controller;
 
 import com.petshop.petshopapi.config.AbstractIntegrationTest;
 import com.petshop.petshopapi.entity.User;
@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class AuthIntegrationTest extends AbstractIntegrationTest {
+public class AuthControllerIT extends AbstractIntegrationTest {
 
     @Autowired
     private MockMvc mockMvc;
