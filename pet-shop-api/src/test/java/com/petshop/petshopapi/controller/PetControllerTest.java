@@ -49,7 +49,7 @@ public class PetControllerTest {
         Mockito.when(petService.registerPet(any(PetRegistrationDTO.class), eq(loggedInEmail)))
                 .thenReturn(fakeResponse);
 
-        mockMvc.perform(post("/api/pets/register")
+        mockMvc.perform(post("/api/v1/pets")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(newPetJson)
                         .principal(authMock))

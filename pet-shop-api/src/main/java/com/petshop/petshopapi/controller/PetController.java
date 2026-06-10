@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/pets")
+@RequestMapping("api/v1/pets")
 public class PetController {
 
     PetService petService;
@@ -22,7 +22,7 @@ public class PetController {
         this.petService = petService;
     }
 
-    @PostMapping("/register")
+    @PostMapping
     public ResponseEntity<PetResponseDTO> register(@Valid @RequestBody PetRegistrationDTO dto, Authentication authentication) {
         String loggedInEmail = authentication.getName();
 

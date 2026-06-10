@@ -35,7 +35,7 @@ public class UserControllerIT extends AbstractIntegrationTest {
                 }
                 """;
 
-        mockMvc.perform(post("/api/users/register").with(csrf())
+        mockMvc.perform(post("/api/v1/users").with(csrf())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(newUserJson))
                 .andExpect(status().isCreated());

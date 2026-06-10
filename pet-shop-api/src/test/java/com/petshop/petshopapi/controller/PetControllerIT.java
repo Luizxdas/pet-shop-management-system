@@ -61,7 +61,7 @@ public class PetControllerIT extends AbstractIntegrationTest {
                 """;
 
 
-        mockMvc.perform(post("/api/pets/register")
+        mockMvc.perform(post("/api/v1/pets")
                 .with(user("integration@example.com").roles("CUSTOMER"))
                 .with(csrf())
                 .contentType(MediaType.APPLICATION_JSON)

@@ -55,7 +55,7 @@ public class AuthControllerIT extends AbstractIntegrationTest {
                 }
                 """;
 
-        mockMvc.perform(post("/api/auth/login")
+        mockMvc.perform(post("/api/v1/auth/login")
                         .with(csrf())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(loginJson))
@@ -74,7 +74,7 @@ public class AuthControllerIT extends AbstractIntegrationTest {
             }
             """;
 
-        MvcResult loginResult = mockMvc.perform(post("/api/auth/login")
+        MvcResult loginResult = mockMvc.perform(post("/api/v1/auth/login")
                         .with(csrf())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(loginJson))
@@ -84,7 +84,7 @@ public class AuthControllerIT extends AbstractIntegrationTest {
         MockHttpSession session = (MockHttpSession) loginResult.getRequest().getSession(false);
         assert session != null;
 
-        mockMvc.perform(post("/api/auth/logout")
+        mockMvc.perform(post("/api/v1/auth/logout")
                         .with(csrf())
                         .session(session))
                 .andExpect(status().isOk());

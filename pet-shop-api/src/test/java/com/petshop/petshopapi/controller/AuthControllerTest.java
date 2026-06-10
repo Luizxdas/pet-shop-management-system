@@ -44,7 +44,7 @@ public class AuthControllerTest {
         UserResponseDTO falseReponse = new UserResponseDTO(2L, "John Doe", "johndoe@example.com", "ROLE_CUSTOMER");
         Mockito.when(authService.login(any(UserLoginDTO.class))).thenReturn(falseReponse);
 
-        mockMvc.perform(post("/api/auth/login")
+        mockMvc.perform(post("/api/v1/auth/login")
                         .with(csrf())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(loginJson))
@@ -64,7 +64,7 @@ public class AuthControllerTest {
                 }
                 """;
 
-        mockMvc.perform(post("/api/auth/login")
+        mockMvc.perform(post("/api/v1/auth/login")
                         .with(csrf())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(loginJson))
@@ -83,7 +83,7 @@ public class AuthControllerTest {
         Mockito.when(authService.login(any(UserLoginDTO.class)))
                 .thenThrow(new BadCredentialsException("Bad credentials"));
 
-        mockMvc.perform(post("/api/auth/login")
+        mockMvc.perform(post("/api/v1/auth/login")
                         .with(csrf())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(loginJson))
@@ -96,7 +96,7 @@ public class AuthControllerTest {
     @Test
     @WithMockUser(username = "unit@example.com", roles = {"CUSTOMER"})
     public void testLogoutUser_Returns200Ok() throws Exception {
-        mockMvc.perform(post("/api/auth/logout")
+        mockMvc.perform(post("/api/v1/auth/logout")
                 .with(csrf()))
                 .andExpect(status().isOk());
     }

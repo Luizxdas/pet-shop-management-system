@@ -46,7 +46,7 @@ public class UserControllerTest {
         Mockito.when(userService.registerUser(any(UserRegistrationDTO.class)))
                 .thenReturn(fakeResponse);
 
-        mockMvc.perform(post("/api/users/register")
+        mockMvc.perform(post("/api/v1/users")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(newUserJson))
                 .andExpect(status().isCreated())
@@ -67,7 +67,7 @@ public class UserControllerTest {
                     }
                     """;
 
-        mockMvc.perform(post("/api/users/register")
+        mockMvc.perform(post("/api/v1/users")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(newUserJson))
                 .andExpect(status().isBadRequest());
@@ -87,7 +87,7 @@ public class UserControllerTest {
         Mockito.when(userService.registerUser(any(UserRegistrationDTO.class)))
                 .thenThrow(new EmailAlreadyExistsException("Email is already in use"));
 
-        mockMvc.perform(post("/api/users/register")
+        mockMvc.perform(post("/api/v1/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(newUserJson))
                 .andExpect(status().isBadRequest())
@@ -107,7 +107,7 @@ public class UserControllerTest {
                     }
                     """;
 
-        mockMvc.perform(post("/api/users/register")
+        mockMvc.perform(post("/api/v1/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(newUserJson))
                 .andExpect(status().isBadRequest());
