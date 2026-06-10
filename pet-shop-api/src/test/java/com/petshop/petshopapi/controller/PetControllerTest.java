@@ -21,15 +21,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(PetController.class)
 public class PetControllerTest {
 
-    private final MockMvc mockMvc;
+    @Autowired
+    private MockMvc mockMvc;
 
     @MockitoBean
     private PetService petService;
-
-    @Autowired
-    public PetControllerTest(MockMvc mockMvc) {
-        this.mockMvc = mockMvc;
-    }
 
     @Test
     public void registerPet_Return201Create() throws Exception {

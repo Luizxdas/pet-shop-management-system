@@ -22,15 +22,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(AuthController.class)
 public class AuthControllerTest {
 
-    private final MockMvc mockMvc;
+    @Autowired
+    private MockMvc mockMvc;
 
     @MockitoBean
     private AuthService authService;
-
-    @Autowired
-    public AuthControllerTest(MockMvc mockMvc) {
-        this.mockMvc = mockMvc;
-    }
 
     @Test
     public void testLoginUser_Returns200Ok() throws Exception {

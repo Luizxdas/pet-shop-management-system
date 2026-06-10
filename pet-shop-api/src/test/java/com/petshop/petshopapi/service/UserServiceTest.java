@@ -21,13 +21,13 @@ import static org.mockito.Mockito.*;
 public class UserServiceTest {
 
     @Mock
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Mock
-    PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     @InjectMocks
-    UserService userService;
+    private UserService userService;
 
     @Test
     public void registerUser_EmailAlreadyExists_ThrowsException() {

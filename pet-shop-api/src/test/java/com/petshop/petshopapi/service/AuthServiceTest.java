@@ -25,13 +25,13 @@ import static org.mockito.ArgumentMatchers.anyString;
 public class AuthServiceTest {
 
     @Mock
-    AuthenticationManager authenticationManager;
+    private AuthenticationManager authenticationManager;
 
     @Mock
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @InjectMocks
-    AuthService authService;
+    private AuthService authService;
 
     @Test
     public void loginUser_WithValidData_ReturnsUserResponseDTO() {

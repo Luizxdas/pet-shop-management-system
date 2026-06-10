@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/v1/pets")
 public class PetController {
 
-    PetService petService;
+    private final PetService petService;
 
     public PetController(PetService petService) {
         this.petService = petService;

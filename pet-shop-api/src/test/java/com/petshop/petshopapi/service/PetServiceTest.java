@@ -24,13 +24,13 @@ import static org.mockito.Mockito.when;
 public class PetServiceTest {
 
     @Mock
-    PetRepository petRepository;
+    private PetRepository petRepository;
 
     @Mock
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @InjectMocks
-    PetService petService;
+    private PetService petService;
 
     @Test
     public void registerPet_ValidData_SavesAndReturnsDTO() {

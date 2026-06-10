@@ -26,16 +26,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class PetControllerIT extends AbstractIntegrationTest {
 
     @Autowired
-    MockMvc mockMvc;
+    private MockMvc mockMvc;
 
     @Autowired
-    PetRepository petRepository;
+    private PetRepository petRepository;
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     @BeforeEach
     public void setup() {

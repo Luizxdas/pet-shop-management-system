@@ -20,15 +20,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(UserController.class)
 public class UserControllerTest {
 
-    private final MockMvc mockMvc;
+    @Autowired
+    private MockMvc mockMvc;
 
     @MockitoBean
     private UserService userService;
-
-    @Autowired
-    public UserControllerTest(MockMvc mockMvc) {
-        this.mockMvc = mockMvc;
-    }
 
     @Test
     public void testRegisterUser_Returns201Create() throws Exception {
