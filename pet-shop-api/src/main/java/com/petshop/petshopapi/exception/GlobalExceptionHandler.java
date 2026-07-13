@@ -1,5 +1,7 @@
 package com.petshop.petshopapi.exception;
 
+import com.petshop.petshopapi.dto.error.ApiErrorDTO;
+import com.petshop.petshopapi.entity.enums.ErrorCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -19,24 +21,20 @@ public class GlobalExceptionHandler {
 
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
+    private ApiErrorDTO buildError(ErrorCode code, String message, Map<String, String> details) {
+        return new ApiErrorDTO(code, message, details);
+    }
+
     @ExceptionHandler(EmailAlreadyExistsException.class)
-    public ResponseEntity<ErrorResponse> handleEmailAlreadyExistsException(EmailAlreadyExistsException ex) {
-        ErrorResponse errorResponse = new ErrorResponse(
-                HttpStatus.BAD_REQUEST.value(),
-                "Bad Request",
-                ex.getMessage()
-        );
+    public ResponseEntity<ApiErrorDTO> handleEmailAlreadyExistsException(EmailAlreadyExistsException ex) {
+        ApiErrorDTO errorResponse = buildError(ex.getErrorCode(), ex.getMessage(), null);
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
 
     @ExceptionHandler(BadCredentialsException.class)
-    public ResponseEntity<ErrorResponse> handleBadCredentialsException(BadCredentialsException ex) {
-        ErrorResponse errorResponse = new ErrorResponse(
-                HttpStatus.UNAUTHORIZED.value(),
-                "Unauthorized",
-                ex.getMessage()
-        );
+    public ResponseEntity<ApiErrorDTO> handleBadCredentialsException(BadCredentialsException ex) {
+        ApiErrorDTO errorResponse = buildError(ErrorCode.INVALID_CREDENTIALS, ex.getMessage(), null);
 
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);
     }
